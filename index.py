@@ -1,10 +1,11 @@
 # from threading import Thread
 from flask import Flask, request, send_file
-from utils import read_as_binary
-from uuid import uuid4
+# from utils import read_as_binary
+# from uuid import uuid4
+from io import BytesIO
 import qrcode
-import image
-import os
+# import image
+# import os
 
 app = Flask(__name__)
 
@@ -22,9 +23,11 @@ def api_test():
 	qr.add_data(data)
 	qr.make(fit=True)
 	img = qr.make_image(fill="black", back_color="white")
-	filename = f"./{str(uuid4())}.png"
-	img.save(filename)
-	return send_file(filename, download_name="qrcode.png")
+	buffer = BytesIO()
+	# filename = f"./{str(uuid4())}.png"
+	img.save(buffer)
+	buffer.seek(0)
+	return send_file(buffer, mimetype='image/jpeg', download_name="qrcode.png")
 
 
 
