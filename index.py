@@ -27,6 +27,6 @@ def api_test():
 	return send_file(read_as_binary(filename), download_name="qrcode.png")
 
 
-port = int(os.environ.get("PORT", 3080))
-api.run(host="0.0.0.0", debug=False, port=port)
+# port = int(os.environ.get("PORT", 3080))
+# api.run(host="0.0.0.0", debug=False, port=port)
 # api_Thread = Thread(target=api.run, args=(), kwargs={"host": "0.0.0.0", "debug": False, "port": port})
