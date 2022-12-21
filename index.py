@@ -22,11 +22,12 @@ def api_test():
 	qr.add_data(data)
 	qr.make(fit=True)
 	img = qr.make_image(fill="black", back_color="white")
-	filename = f"{str(uuid4())}.png"
+	filename = f"./{str(uuid4())}.png"
 	img.save(filename)
-	return send_file(read_as_binary(filename), download_name="qrcode.png")
+	return send_file(filename, download_name="qrcode.png")
 
 
-# port = int(os.environ.get("PORT", 3080))
-# api.run(host="0.0.0.0", debug=False, port=port)
+
+port = int(os.environ.get("PORT", 3080))
+app.run(host="0.0.0.0", debug=False, port=port)
 # api_Thread = Thread(target=api.run, args=(), kwargs={"host": "0.0.0.0", "debug": False, "port": port})
