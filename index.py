@@ -28,6 +28,6 @@ def api_test():
 
 
 
-port = int(os.environ.get("PORT", 3080))
-app.run(host="0.0.0.0", debug=False, port=port)
+# port = int(os.environ.get("PORT", 3080))
+# app.run(host="0.0.0.0", debug=False, port=port)
 # api_Thread = Thread(target=api.run, args=(), kwargs={"host": "0.0.0.0", "debug": False, "port": port})
