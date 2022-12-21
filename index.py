@@ -9,6 +9,11 @@ import os
 api = Flask(__name__)
 
 
+@api.route('/', methods=['GET'])
+def home():
+	return "nothing here, but it's fine."
+
+
 @api.route('/qrcode', methods=['GET'])
 def api_test():
 	args = request.args.to_dict()
